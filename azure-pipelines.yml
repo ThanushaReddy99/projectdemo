@@ -23,6 +23,5 @@ steps:
     allowBrokenSymlinks: 
     checkStyleRunAnalysis: 
     - task: PublishPipelineArtifact@1
-  
-    targetPath: pom.xml
+      targetPath: pom.xml
     artifactName: WebApp
