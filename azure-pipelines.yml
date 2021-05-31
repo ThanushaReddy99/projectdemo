@@ -12,7 +12,11 @@ pool:
 steps:
 - task: Maven@3
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: '- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'pom.xml'
+    ArtifactName: 'drop'
+    publishLocation: 'Container''
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
@@ -23,6 +27,3 @@ steps:
     allowBrokenSymlinks: 
     checkStyleRunAnalysis: 
     
-    - task: PublishPipelineArtifact@1
-      targetPath: pom.xml
-    artifactName: WebApp
